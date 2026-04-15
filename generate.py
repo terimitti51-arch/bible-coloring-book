@@ -3,7 +3,7 @@ from PIL import Image, ImageFilter
 import img2pdf
 
 HF_TOKEN = os.environ["HF_TOKEN"]
-API_URL = "https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-schnell"
+API_URL = "API_URL = "https://router.huggingface.co/hf-inference/models/black-forest-labs/FLUX.1-schnell"
 headers = {"Authorization": f"Bearer {HF_TOKEN}"}
 
 os.makedirs("output/images", exist_ok=True)
