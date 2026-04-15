@@ -1,0 +1,29 @@
+name: Bible Coloring Book Generator
+
+on:
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: pip install requests pillow img2pdf
+
+      - name: Generate Images
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: python generate.py
+
+      - name: Upload PDF
+        uses: actions/upload-artifact@v3
+        with:
+          name: coloring-book
+          path: output/coloring_book.pdf
