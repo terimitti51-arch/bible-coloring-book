@@ -18,8 +18,6 @@ jobs:
         run: pip install requests pillow img2pdf
 
       - name: Generate Images
-        env:
-        
         run: python generate.py
 
       - name: Upload PDF
